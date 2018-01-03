@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions>
+<action><pop>56</pop><time>5:01</time><prod class="Building" image="building_protoss_gateway">Gateway</prod><details></details></action>
+<action><pop>56</pop><time>5:01</time><prod class="Building" image="building_protoss_gateway">Gateway</prod><details></details></action>
+<action><pop>56</pop><time>5:01</time><prod class="Building" image="building_protoss_gateway">Gateway</prod><details></details></action>
+<action><pop>56</pop><time>5:07</time><prod class="Unit" image="unit_protoss_warpprism">Warp Prism</prod><details></details></action>
+<action><pop>56</pop><time>5:13</time><prod class="Upgrade" image="ability_protoss_charge_color">Charge</prod><details>Cost: 100/100, research it, if you have Over-Gas!</details></action>
+<action><pop>60</pop><time>5:16</time><prod class="Unit" image="unit_protoss_stalker">Stalker</prod><details>Warp-In Stalkers constantly from now on!</details></action>
+<action><pop>68</pop><time>5:41</time><prod class="Unit" image="unit_protoss_observer">Observer</prod><details></details></action>
+<action><pop>68</pop><time>5:46</time><prod class="Building" image="building_protoss_roboticssupportbay">Robotics Bay</prod><details></details></action>
+<action><pop>68</pop><time>5:47</time><prod class="Unit" image="unit_protoss_sentry">Sentry</prod><details>OPTIONAL for Scouting!</details></action>
+<action><pop>68</pop><time>5:49</time><prod class="Building" image="building_protoss_forge">Forge</prod><details></details></action>
+<action><pop>68</pop><time>5:49</time><prod class="Building" image="building_protoss_forge">Forge</prod><details></details></action>
+<action><pop>75</pop><time>5:59</time><prod class="Unit" image="unit_protoss_observer">Observer</prod><details></details></action>
+<action><pop>88</pop><time>6:40</time><prod class="Upgrade" image="upgrade_protoss_groundweaponslevel1">Protoss Ground Weapons Level 1</prod><details></details></action>
+<action><pop>88</pop><time>6:41</time><prod class="Upgrade" image="upgrade_protoss_groundarmorlevel1">Protoss Ground Armor Level 1</prod><details></details></action>
+<action><pop>88</pop><time>6:46</time><prod class="Building" image="building_protoss_gateway">Gateway</prod><details></details></action>
+<action><pop>88</pop><time>6:46</time><prod class="Building" image="building_protoss_gateway">Gateway</prod><details></details></action>
+</actions>

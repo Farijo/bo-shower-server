@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions>
+<action><pop>14</pop><prod class="Building" image="building_protoss_pylon">Pylon</prod></action>
+<action><pop>15</pop><prod class="Building" image="building_protoss_gateway">Gateway</prod></action>
+<action><pop>16</pop><prod class="Building" image="building_protoss_assimilator">Assimilator</prod></action>
+<action><pop>17</pop><prod class="Building" image="building_protoss_assimilator">Assimilator</prod></action>
+<action><onfinish ref="1"/><prod class="Building" image="building_protoss_cyberneticscore">Cybernetics Core</prod></action>
+<action><onfinish ref="1"/><prod class="Building" image="building_protoss_gateway">Gateway</prod></action>
+<action><pop>21</pop><prod class="Building" image="building_protoss_pylon">Pylon</prod></action>
+<action><onfinish ref="4"/><prod class="Upgrade" image="building_protoss_warpgate">Warp Gate</prod></action>
+<action><onfinish ref="4"/><prod class="Unit" image="unit_protoss_adept">Adept</prod><details>Never stop adepts production from now.</details></action>
+<action><pop>25</pop><prod class="Building" image="building_protoss_gateway" count="2">Gateway</prod></action>
+<action><pop>25</pop><prod class="Building" image="building_protoss_pylon">Pylon</prod></action>
+<action><pop>25</pop><prod class="Building" image="building_protoss_twilightcouncil">Twilight Council</prod></action>
+<action><pop>29</pop><prod class="Building" image="building_protoss_pylon">Proxy Pylon</prod></action>
+<action><pop>29</pop><prod class="Building" image="building_protoss_gateway">Proxy Gateway</prod></action>
+<action><onfinish ref="11"/><prod class="Upgrade" image="upgrade_protoss_resonatingglaives">Resonating Glaives</prod></action>
+<action></action>
+</actions>
