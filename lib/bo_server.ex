@@ -55,7 +55,10 @@ defmodule BOServer do
   end
 
   defp get_file_couple(size, _) when size>255, do: []
-  defp get_file_couple(size, path), do: [[<<size::size(16)>>, path]]
+  defp get_file_couple(size, path) do
+    {:ok, {_, _, _, _, _, mtime, _, _, _, _, _, _, _, _}} = :file.read_file_info(path)
+    [[<<size::size(16)>>, path, time_to_binary(mtime)]]
+  end
 
   defp serve(socket) do
     case :gen_tcp.recv(socket, 0) do
@@ -72,16 +75,29 @@ defmodule BOServer do
   end
 
   defp send_file_requested(filename, socket) do
+    Logger.info "Checking : \n#{filename}\n#{@abs_root}"
     true = String.starts_with? filename, @abs_root
     case :file.read_file_info(filename) do
       {:ok, {_, 0, _, _, _, _, _, _, _, _, _, _, _, _}} ->
         :gen_tcp.send(socket, <<0>>)
-      {:ok, {_, size, _, _, _, {mtime_day, mtime_sec}, _, _, _, _, _, _, _, _}} ->
+      {:ok, {_, size, _, _, _, mtime, _, _, _, _, _, _, _, _}} ->
         :gen_tcp.send(socket, <<size::size(16)>>)
         :file.sendfile(filename, socket)
+        :gen_tcp.send(socket, time_to_binary(mtime))
       _ ->
         :gen_tcp.send(socket, <<0>>)
     end
+  end
+
+  defp time_to_binary(time) do
+    day = time |> elem(0)
+    hour = time |> elem(1)
+    << day |> elem(0)::size(16),
+       day |> elem(1)::size(16),
+       day |> elem(2)::size(16),
+       hour |> elem(0)::size(16),
+       hour |> elem(1)::size(16),
+       hour |> elem(2)::size(16) >>
   end
 
   def hello do
