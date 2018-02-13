@@ -37,7 +37,7 @@ defmodule BOServer do
   end
 
   defp list_file(path) do
-    parse_dir(path, File.ls!(path)) ++ [0]
+    parse_dir(path, File.ls!(path)) ++ [int_to_binary16(0)]
   end
 
   defp parse_dir(_, []), do: []
@@ -79,13 +79,13 @@ defmodule BOServer do
     true = String.starts_with? filename, @abs_root
     case :file.read_file_info(filename) do
       {:ok, {_, 0, _, _, _, _, _, _, _, _, _, _, _, _}} ->
-        :gen_tcp.send(socket, <<0>>)
+        :gen_tcp.send(socket, int_to_binary16(0))
       {:ok, {_, size, _, _, _, mtime, _, _, _, _, _, _, _, _}} ->
-        :gen_tcp.send(socket, <<size::size(16)>>)
+        :gen_tcp.send(socket, int_to_binary16(size))
         :file.sendfile(filename, socket)
         :gen_tcp.send(socket, time_to_binary(mtime))
       _ ->
-        :gen_tcp.send(socket, <<0>>)
+        :gen_tcp.send(socket, int_to_binary16(0))
     end
   end
 
@@ -98,6 +98,10 @@ defmodule BOServer do
        hour |> elem(0)::size(16),
        hour |> elem(1)::size(16),
        hour |> elem(2)::size(16) >>
+  end
+
+  defp int_to_binary16(value) do
+    <<value::size(16)>>
   end
 
   def hello do
